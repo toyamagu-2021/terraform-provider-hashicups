@@ -3,10 +3,10 @@ HOSTNAME=hashicorp.com
 NAMESPACE=edu
 NAME=hashicups
 BINARY=terraform-provider-${NAME}
-VERSION=0.2
+VERSION=0.2.0
 OS:=$(shell go env GOHOSTOS)
 ARCH:=$(shell go env GOHOSTARCH)
-OS_ARCH:="${OS}_${ARCH}"
+OS_ARCH:=${OS}_${ARCH}
 
 default: install
 
@@ -37,3 +37,7 @@ test:
 
 testacc: 
 	TF_ACC=1 go test $(TEST) -v $(TESTARGS) -timeout 120m   
+
+.PHONY: run
+run:
+	cd docker_compose && docker compose up
