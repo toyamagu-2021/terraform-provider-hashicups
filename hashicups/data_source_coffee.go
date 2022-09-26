@@ -8,7 +8,6 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/hashicorp/terraform-plugin-go/tfprotov6/internal/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -43,7 +42,7 @@ func dataSourceCofees() *schema.Resource {
 							Computed: true,
 						},
 						"image": &schema.Schema{
-							Type:     schema.TypeInt,
+							Type:     schema.TypeString,
 							Computed: true,
 						},
 						"ingredients": &schema.Schema{
