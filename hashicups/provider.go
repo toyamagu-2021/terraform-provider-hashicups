@@ -27,6 +27,7 @@ func Provider() *schema.Provider {
 		ResourcesMap: map[string]*schema.Resource{},
 		DataSourcesMap: map[string]*schema.Resource{
 			"hashicups_coffees": dataSourceCofees(),
+			"hashicups_order":   dataSourceOrder(),
 		},
 		ConfigureContextFunc: providerConfigure,
 	}
