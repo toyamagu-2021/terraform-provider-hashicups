@@ -18,3 +18,11 @@ module "psl" {
 output "psl" {
   value = module.psl.coffee
 }
+
+data "hashicups_order" "order" {
+  id = 2
+}
+
+output "order" {
+  value = data.hashicups_order.order
+}
