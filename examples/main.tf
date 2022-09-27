@@ -23,7 +23,7 @@ output "psl" {
 }
 
 data "hashicups_order" "order" {
-  id = 2
+  id = 1
 }
 
 output "order" {
@@ -41,6 +41,6 @@ resource "hashicups_order" "edu" {
     coffee {
       id = 2
     }
-    quantity = 2
+    quantity = 3
   }
 }
