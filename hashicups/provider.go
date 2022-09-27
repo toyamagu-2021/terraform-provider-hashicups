@@ -12,12 +12,12 @@ import (
 func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"username": &schema.Schema{
+			"username": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("HASHICUPS_USERNAME", nil),
 			},
-			"password": &schema.Schema{
+			"password": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				Sensitive:   true,
@@ -42,7 +42,13 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	if (username != "") && (password != "") {
 		c, err := hashicups.NewClient(nil, &username, &password)
 		if err != nil {
-			return nil, diag.FromErr(err)
+			diags = append(diags, diag.Diagnostic{
+				Severity: diag.Error,
+				Summary:  "Unable to create HashiCups client",
+				Detail:   "Unable to auth user for authenticated HashiCups client",
+			})
+
+			return nil, diags
 		}
 
 		return c, diags
@@ -50,7 +56,12 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 
 	c, err := hashicups.NewClient(nil, nil, nil)
 	if err != nil {
-		return nil, diag.FromErr(err)
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Error,
+			Summary:  "Unable to create HashiCups client",
+			Detail:   "Unable to auth user for unauthenticated HashiCups client",
+		})
+		return nil, diags
 	}
 
 	return c, diags
