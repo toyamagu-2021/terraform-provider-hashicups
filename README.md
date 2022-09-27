@@ -1,10 +1,8 @@
 # Terraform Provider Hashicups
 
-Run the following command to build the provider
+## Source
 
-```shell
-go build -o terraform-provider-hashicups
-```
+- [Terraform official tutorial](https://learn.hashicorp.com/tutorials/terraform/provider-use?in=terraform/providers)
 
 ## Test sample configuration
 
@@ -14,7 +12,13 @@ First, build and install the provider.
 make install
 ```
 
-Then, run the following command to initialize the workspace and apply the sample configuration.
+Then, run the docker container
+
+```shell
+make run
+```
+
+Finally, run the following command to initialize the workspace and apply the sample configuration.
 
 ```shell
 terraform init && terraform apply

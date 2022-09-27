@@ -16,41 +16,41 @@ func dataSourceCofees() *schema.Resource {
 	return &schema.Resource{
 		ReadContext: dataSourceCoffeesRead,
 		Schema: map[string]*schema.Schema{
-			"coffees": &schema.Schema{
+			"coffees": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"id": &schema.Schema{
+						"id": {
 							Type:     schema.TypeInt,
 							Computed: true,
 						},
-						"name": &schema.Schema{
+						"name": {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
-						"teaser": &schema.Schema{
+						"teaser": {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
-						"description": &schema.Schema{
+						"description": {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
-						"price": &schema.Schema{
+						"price": {
 							Type:     schema.TypeInt,
 							Computed: true,
 						},
-						"image": &schema.Schema{
+						"image": {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
-						"ingredients": &schema.Schema{
+						"ingredients": {
 							Type:     schema.TypeList,
 							Computed: true,
 							Elem: &schema.Resource{
 								Schema: map[string]*schema.Schema{
-									"ingredient_id": &schema.Schema{
+									"ingredient_id": {
 										Type:     schema.TypeInt,
 										Computed: true,
 									},
