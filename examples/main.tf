@@ -29,3 +29,18 @@ data "hashicups_order" "order" {
 output "order" {
   value = data.hashicups_order.order
 }
+
+resource "hashicups_order" "edu" {
+  items {
+    coffee {
+      id = 3
+    }
+    quantity = 2
+  }
+  items {
+    coffee {
+      id = 2
+    }
+    quantity = 2
+  }
+}

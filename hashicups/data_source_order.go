@@ -81,7 +81,7 @@ func dataSourceOrderRead(ctx context.Context, d *schema.ResourceData, m interfac
 
 func flatternOrderItemsData(orderItems *[]hc.OrderItem) []interface{} {
 	if orderItems != nil {
-		ois := make([]interface{}, len(*orderItems), len(*orderItems))
+		ois := make([]interface{}, len(*orderItems))
 		for i, orderItem := range *orderItems {
 			oi := make(map[string]interface{})
 
