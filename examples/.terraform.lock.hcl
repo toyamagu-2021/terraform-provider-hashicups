@@ -5,6 +5,6 @@ provider "hashicorp.com/edu/hashicups" {
   version     = "0.2.0"
   constraints = "0.2.0"
   hashes = [
-    "h1:PIPGEhYuLXRaCk2BKVEnphqalAFaVk7yFONtACAhuH4=",
+    "h1:akEPFGmLDtLFkt0ma3DjPEbodvhc9mhaHFtmMdWOdmw=",
   ]
 }
